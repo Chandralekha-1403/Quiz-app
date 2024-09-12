@@ -1,0 +1,26 @@
+.app {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #f4f4f4;
+  }
+  .quiz-container {
+    width: 500px; 
+    background-color: #fff; 
+    border-radius: 20px; 
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); 
+    padding: 20px; 
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .quiz-header {
+    margin-bottom: 20px;
+    width: 100px;
+    height: 100px;
+  }
+   .quiz-footer {
+    margin-top: auto;
+  }
+  
