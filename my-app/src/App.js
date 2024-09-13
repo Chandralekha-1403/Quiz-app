@@ -5,56 +5,100 @@ import QuizResult from './components/QuizResult';
 import './App.scss';
 
 const App = () => {
-    const [currentQuestion, setCurrentQuestion] = useState(1);
-    const [isQuizStarted, setIsQuizStarted] = useState(false);
-    const [isQuizComplete, setIsQuizComplete] = useState(false);
-    const [score, setScore] = useState(0);
-    const [correctAnswers, setCorrectAnswers] = useState([]);
-    const [incorrectAnswers, setIncorrectAnswers] = useState([]);
-    const totalQuestions = 5;
+  const [questions, setQuestions] = useState([]);
+  const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
+  const [quizFinished, setQuizFinished] = useState(false);
+  const [startTime, setStartTime] = useState(null);
+  const [finalResult, setFinalResult] = useState(null);
 
-    const handleStartQuiz = () => {
-        setIsQuizStarted(true);
+  const startQuiz = async () => {
+    try {
+        const response = await fetch('/api/start', {
+            method: 'GET'
+        });
+    //   const response = await fetch('/api/start');
+      if (!response.ok) {
+        throw new Error('Network response was not ok');
+      }
+      const data = await response.json();
+      setQuestions(data);
+      setCurrentQuestionIndex(0);
+      setQuizFinished(false);
+      setStartTime(Date.now());
+    } catch (error) {
+      console.error('Failed to fetch questions:', error);
+    }
+  };
+
+
+  const handleAnswerSubmit = async (selectedOptions) => {
+    const timeTaken = Date.now() - startTime;
+    const currentQuestion = questions[currentQuestionIndex];
+
+    if (!currentQuestion) return;
+
+    const payload = {
+      questionId: currentQuestion.id,
+      selectedOptions: selectedOptions,
+      timeTaken: timeTaken
     };
 
-    const handleNext = () => {
-        if (currentQuestion < totalQuestions) {
-            setCurrentQuestion(currentQuestion + 1);
-        } else {
-            setIsQuizComplete(true);
-        }
-    };
+    try {
+      await fetch('/api/submit', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload)
+      });
+    } catch (error) {
+      console.error('Failed to submit responses:', error);
+    }
 
-    const handleStartAgain = () => {
-        setIsQuizStarted(false);
-        setIsQuizComplete(false);
-        setCurrentQuestion(1);
-        setScore(0);
-        setCorrectAnswers([]);
-        setIncorrectAnswers([]);
-    };
+    if (currentQuestionIndex + 1 < questions.length) {
+      setCurrentQuestionIndex((prev) => prev + 1);
+      setStartTime(Date.now());
+    } else {
+      setQuizFinished(true);
 
-    return (
-        <div className="app">
-            {!isQuizStarted ? (
-                <QuizStart onStartQuiz={handleStartQuiz} />
-            ) : isQuizComplete ? (
-                <QuizResult 
-                    score={score}
-                    totalQuestions={totalQuestions}
-                    correctAnswers={correctAnswers}
-                    incorrectAnswers={incorrectAnswers}
-                    onStartAgain={handleStartAgain}
-                />
-            ) : (
-                <QuizContainer 
-                    currentQuestion={currentQuestion} 
-                    totalQuestions={totalQuestions} 
-                    onNext={handleNext} 
-                />
-            )}
-        </div>
-    );
+      try {
+        const resultResponse = await fetch('/api/result');
+        const resultData = await resultResponse.json();
+        setFinalResult(resultData);
+      } catch (error) {
+        console.error('Failed to fetch results:', error);
+      }
+    }
+  };
+
+  const handleStartAgain = () => {
+    startQuiz();
+  };
+
+  return (
+    <div className="App">
+      {!quizFinished ? (
+        questions.length === 0 ? (
+          <QuizStart onStartQuiz={startQuiz} />
+        ) : (
+          <QuizContainer
+            currentQuestion={currentQuestionIndex + 1}
+            totalQuestions={questions.length}
+            questionData={questions[currentQuestionIndex]}
+            onNext={handleAnswerSubmit}
+          />
+        )
+      ) : (
+        finalResult && (
+          <QuizResult
+            score={finalResult.score}
+            totalQuestions={questions.length}
+            correctAnswers={finalResult.correctAnswers}
+            incorrectAnswers={finalResult.incorrectAnswers}
+            onStartAgain={handleStartAgain}
+          />
+        )
+      )}
+    </div>
+  );
 };
 
 export default App;

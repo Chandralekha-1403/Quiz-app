@@ -1,14 +1,14 @@
 import React from 'react';
-import ReactSpeedometer from "react-d3-speedometer";
+import ReactSpeedometer from 'react-d3-speedometer';
 import Footer from './Footer';
 import './QuizResult.scss';
 
 const QuizResult = ({ score, totalQuestions, correctAnswers, incorrectAnswers, onStartAgain }) => {
-    const percentage = (score / totalQuestions) * 100;
+    const percentage = (correctAnswers / totalQuestions) * 100;
 
     return (
         <div className="quiz-result-container">
-            <h2>Your Score: {score}/{totalQuestions}</h2>
+            <h2>Your score</h2>
             <ReactSpeedometer 
                 value={percentage} 
                 minValue={0} 
@@ -21,10 +21,10 @@ const QuizResult = ({ score, totalQuestions, correctAnswers, incorrectAnswers, o
             />
             <div className="answer-summary">
                 <div className="correct-answers">
-                {correctAnswers.length} Correct 
+                    {correctAnswers} Correct 
                 </div>
                 <div className="incorrect-answers">
-                {incorrectAnswers.length} Incorrect
+                    {incorrectAnswers} Incorrect
                 </div>
             </div>
             <Footer label="Start Again" onClick={onStartAgain} />
