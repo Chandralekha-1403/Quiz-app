@@ -8,7 +8,7 @@ const QuizResult = ({ score, totalQuestions, correctAnswers, incorrectAnswers, o
 
     return (
         <div className="quiz-result-container">
-            <h2>Your score</h2>
+            <h2>Your result</h2>
             <ReactSpeedometer 
                 value={percentage} 
                 minValue={0} 
@@ -21,10 +21,13 @@ const QuizResult = ({ score, totalQuestions, correctAnswers, incorrectAnswers, o
             />
             <div className="answer-summary">
                 <div className="correct-answers">
-                    {correctAnswers} Correct 
+                    <span className="result-value">{correctAnswers}</span>
+                    <span className="resut-text">Correct</span>
+                      
                 </div>
                 <div className="incorrect-answers">
-                    {incorrectAnswers} Incorrect
+                    <span className="result-value">{incorrectAnswers}</span>
+                    <span className="resut-text">Incorrect</span>
                 </div>
             </div>
             <Footer label="Start Again" onClick={onStartAgain} />

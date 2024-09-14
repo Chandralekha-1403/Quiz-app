@@ -7,7 +7,28 @@ const QuizHeader = ({ currentQuestion, totalQuestions }) => {
 
   return (
     <div className="quiz-header">
-      <CircularProgressbar value={progress} text={`${currentQuestion}/${totalQuestions}`} />
+      <div className="circular-progress-container">
+        <CircularProgressbar
+          value={progress}
+          styles={{
+            path: {
+              stroke: '#4DB6AC',
+              strokeLinecap: 'round',
+            },
+            trail: {
+              stroke: '#d6d6d6',
+              strokeLinecap: 'round',
+            },
+            text: {
+              fill: 'transparent', // Hide the default text
+            },
+          }}
+        />
+      </div>
+      <div className="progress-text">
+        <span className="current-question">{currentQuestion}</span>
+        <span className="total-questions">/{totalQuestions}</span>
+      </div>
     </div>
   );
 };

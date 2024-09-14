@@ -1,11 +1,18 @@
 .footer {
     display: flex;
     justify-content: center;
-    margin-top: 20px;
+    margin-top: 20px !important;
+    margin-bottom: 20px;
+    width: 100%;
 }
 
 .footer-button {
-    background-color: #ff3b3b;
+    display: flex;
+    align-items: center;
+    justify-content: center; /* Center text horizontally */
+    position: relative; /* Enable absolute positioning for the arrow */
+    width: 100%;
+    background-color: rgba(255, 59, 63, 1);
     color: white;
     padding: 15px 30px;
     border: none;
@@ -13,9 +20,19 @@
     cursor: pointer;
     transition: background-color 0.3s ease;
     font-size: 1.2rem;
-    text-align: center;
+    font-weight: 900;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.arrow {
+    position: absolute;
+    right: 15px; /* Position the arrow at the extreme right */
+    font-size: 1.5rem; /* Adjust size as needed */
+    top: 50%; /* Center vertically */
+    transform: translateY(-50%); /* Center vertically */
 }
 
 .footer-button:hover {
     background-color: #ff2b2b;
 }
+

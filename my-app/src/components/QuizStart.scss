@@ -1,28 +1,53 @@
 .quiz-start {
     width: 100%; 
     height: 100%; 
-    background-color: #fff;
+    background: linear-gradient(180deg, rgba(175, 156, 243, 0) 7.92%, #AF9CF3 86.48%);
+    background-blend-mode: multiply;
     border-radius: 20px; 
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); 
     padding: 20px; 
     display: flex;
     flex-direction: column;
+    justify-content: center;
     align-items: center;
     margin: 0 auto;
     text-align: center;
 }
 
 .circle-container {
+    width: 100%;
+    height: 100%;
     display: flex;
+    flex-direction: column;
     justify-content: center;
-    margin-bottom: 20px;
+    align-items: center;
+}
+
+.title {
+    display: flex;
+    flex-direction: row;
+    margin-top: 50px;
+}
+
+.title img {
+    width: 40px; /* Adjust size as needed */
+    height: auto;
+    margin-right: 8px;
+    margin-top: 5px;
+}
+
+.title span {
+    font-size: 2rem;
+    font-weight: bold;
+    color: black;
 }
 
 .circle {
-    width: 100px;
-    height: 100px;
+    width: 12rem;
+    height: 11rem;
     border-radius: 50%;
-    background-color: #f0f0f0;
+    box-shadow: 0px 8px 8px 0px rgba(0, 0, 0, 0.1);
+    background-color: white;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -30,9 +55,10 @@
 }
 
 .circle-text {
-    font-size: 1.5rem;
-    font-weight: bold;
-    color: #333;
+    font-size: 2rem;
+    font-weight: 800;
+    color: rgba(255, 59, 60, 1);
+
 }
 
 .start-button {
