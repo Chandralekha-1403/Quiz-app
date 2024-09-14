@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactSpeedometer from 'react-d3-speedometer';
-import Footer from './Footer';
-import './QuizResult.scss';
+import Footer from './QuizFooter';
+import '../styles/QuizResult.scss';
 
 const QuizResult = ({ score, totalQuestions, correctAnswers, incorrectAnswers, onStartAgain }) => {
     const percentage = (correctAnswers / totalQuestions) * 100;
@@ -18,6 +18,8 @@ const QuizResult = ({ score, totalQuestions, correctAnswers, incorrectAnswers, o
                 endColor="red"
                 segments={10}
                 textColor="#000"
+                width={400}
+                height={250}
             />
             <div className="answer-summary">
                 <div className="correct-answers">

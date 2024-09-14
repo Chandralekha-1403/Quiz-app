@@ -3,7 +3,7 @@
   justify-content: center;
   align-items: center;
   width: 500px;
-  height: 700px;
+  height: 720px;
   margin: 0 auto; 
   background-color: #f4f4f4;
 }
@@ -23,7 +23,7 @@
 .confetti {
   width: 100%;
   height: 25%; /* Takes up top 1/4th */
-  background: url('/images-frontend/confetti.png') no-repeat center center;
+  background: url('/images/confetti.png') no-repeat center center;
   background-size: 100% 60%;
   z-index: 1;
   /* Overlay color with blend mode to apply the color */
@@ -165,4 +165,13 @@
 
 .quiz-footer {
   margin-top: auto;
+}
+
+
+.startpage {
+  width: 80%;
+}
+
+.resultpage {
+  margin-top: 30%;
 }

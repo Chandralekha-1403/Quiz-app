@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import Footer from './Footer';
+import Footer from './QuizFooter';
 const QuizForm = ({ questionData, onSubmit }) => {
   const [selectedOptions, setSelectedOptions] = useState([]);
 

@@ -20,7 +20,7 @@ const QuizHeader = ({ currentQuestion, totalQuestions }) => {
               strokeLinecap: 'round',
             },
             text: {
-              fill: 'transparent', // Hide the default text
+              fill: 'transparent', 
             },
           }}
         />

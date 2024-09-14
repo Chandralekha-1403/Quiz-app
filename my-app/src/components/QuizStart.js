@@ -1,6 +1,6 @@
 import React from 'react';
-import Footer from './Footer';
-import './QuizStart.scss';
+import Footer from './QuizFooter';
+import '../styles/QuizStart.scss';
 import arrow from '../images/upArrow.png';
 
 const QuizStart = ({ onStartQuiz }) => {
