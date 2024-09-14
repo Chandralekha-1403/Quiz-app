@@ -21,8 +21,9 @@ const QuizForm = ({ questionData, onSubmit }) => {
   };
 
   return (
-      <div className="quiz-form">
+        <div className="quiz-form">
           <h3>{questionData.question}</h3>
+          {questionData.image && <img src={questionData.image} alt="question" />}
           <div className="quiz-options">
               {questionData.options.map((option, index) => (
                   <label key={index} className="option-label">
