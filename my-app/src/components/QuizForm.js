@@ -31,7 +31,6 @@ const QuizForm = ({ questionData, onSubmit }) => {
                   <label key={index} className={`option-label ${selectedOptions && selectedOptions.includes(option) ? 'checked-option' : ''}`} >
                       <input
                           type="checkbox"
-                          className="rounded-checkbox"
                           checked={selectedOptions.includes(option)}
                           onChange={() => handleOptionChange(option)}
                       />
