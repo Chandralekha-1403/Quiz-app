@@ -2,6 +2,10 @@
 
 A web-based quiz application built with React and Express. This app features a React frontend and an Express backend to handle quiz data and results.
 
+## Live Link
+
+You can view the live application here: https://quiz-app-eta-sand.vercel.app/.
+
 ## Prerequisites
 
 Before you start, ensure you have `Node.js` and `npm` installed on your machine.
@@ -10,28 +14,33 @@ Before you start, ensure you have `Node.js` and `npm` installed on your machine.
 
 ### 1. Install Node Modules
 
-Navigate to the project directory
+Navigate to the project directory:
 
+```bash
 cd my-app
+```
 
 ### 2. Required Installations
 
-first do npm install then followed by the below installations
+First, run `npm install`, then install the following dependencies:
 
-- npm install express body-parser
-- npm install react-d3-speedometer
-- npm install react-circular-progressbar
-- npm install sass --save-dev
-- npm install cors
+```bash
+npm install express body-parser
+npm install react-d3-speedometer
+npm install react-circular-progressbar
+npm install sass --save-dev
+npm install cors
+```
 
-### 3. Configure package.json
+### 3. Configure `package.json`
 
-- make sure proxy is added to run you backend
-- make sure start is added to run frontend 
-- make sure backend is added to run backend
+- Ensure the `proxy` is added to run your backend.
+- Ensure `start` is added to run the frontend.
+- Ensure `backend` is added to run the backend.
 
-Please refer below on how to add:
+Here’s an example configuration:
 
+```json
 {
   "name": "my-app",
   "version": "1.0.0",
@@ -45,9 +54,24 @@ Please refer below on how to add:
     "eject": "react-scripts eject"
   }
 }
+```
 
-### 4. How to Run the appliation
+### 4. How to Run the Application
 
-- make sure you are inside the project directory cd my-app
-- npm run backend (to run backend)
-- npm start (to run frontend)
+- Make sure you are inside the project directory:
+
+  ```bash
+  cd my-app
+  ```
+
+- Run the backend:
+
+  ```bash
+  npm run backend
+  ```
+
+- Run the frontend:
+
+  ```bash
+  npm start
+  ```
