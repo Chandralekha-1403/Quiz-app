@@ -46,6 +46,8 @@ app.get('/api/result', (req, res) => {
   responses = [];
 });
 
-app.listen(port, () => {
-  console.log(`Server running on http://localhost:${port}`);
-});
+module.exports = app;
+
+// app.listen(port, () => {
+//   console.log(`Server running on http://localhost:${port}`);
+// });
