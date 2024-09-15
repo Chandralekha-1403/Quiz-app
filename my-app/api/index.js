@@ -10,9 +10,6 @@ const port = 5000;
 app.use(cors()); 
 app.use(bodyParser.json());
 
-// Serve static files (images, CSS, etc.)
-app.use('/images', express.static(path.join(__dirname, 'images'))); // Serve images
-
 // store the responses
 let responses = [];
 
@@ -46,8 +43,8 @@ app.get('/api/result', (req, res) => {
   responses = [];
 });
 
-module.exports = app;
+// module.exports = app;
 
-// app.listen(port, () => {
-//   console.log(`Server running on http://localhost:${port}`);
-// });
+app.listen(port, () => {
+  console.log(`Server running on http://localhost:${port}`);
+});
