@@ -22,25 +22,6 @@
     align-items: center;
 }
 
-.title {
-    display: flex;
-    flex-direction: row;
-    margin-top: 50px;
-}
-
-.title img {
-    width: 40px; /* Adjust size as needed */
-    height: auto;
-    margin-right: 8px;
-    margin-top: 5px;
-}
-
-.title span {
-    font-size: 2rem;
-    font-weight: bold;
-    color: black;
-}
-
 .circle {
     width: 12rem;
     height: 11rem;
